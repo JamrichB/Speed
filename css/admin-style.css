@@ -1,0 +1,109 @@
+body {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    --default: #F2F2F2;
+    --blackie: #090909;
+    --medium: #A6A39F;
+    --brownish: #403328;
+    --burgundie: #732A24;
+    height: max-content;
+    background: var(--default); 
+}
+
+*, *:before, *:after {
+    /* font-family: 'Jost', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.navbar {
+    width: 100%;
+    height: 4em;
+    background: var(--blackie);
+    border-radius: 0%;
+    display: flex;
+    
+}
+.navbar p {
+    color: var(--default);
+    font-weight: 400;
+    padding: .9em ;
+    margin-left: 40em;
+    font-size: 1.3em;
+    width: 50em;
+    letter-spacing: .5em;
+    font-variant: small-caps;
+}
+
+.navbar a {
+text-decoration: none;
+color: var(--default);
+font-variant: small-caps;
+font-size: 1.4em;
+padding: .7em;
+}
+.container {
+    margin: 5em 0 0 5em;
+}
+
+.add-edit-cars {
+    background-color: var(--burgundie);
+    width: 50em;
+    height: 33em;
+    margin: 0 auto;
+    right: 3em;
+    top: 2em;
+    position: relative;
+    border-radius: 2%;
+    margin-bottom: 8em;
+    margin-top: 2em;
+}
+.add-edit-reservation{
+    background-color: var(--burgundie);
+    width: 50em;
+    height: 35em;
+    margin: 0 auto;
+    right: 3em;
+    top: 2em;
+    position: relative;
+    border-radius: 2%;
+    margin-bottom: 8em;
+    margin-top: 2em;
+}
+.components{
+    display: flex;
+    flex-direction: column;
+}
+.components h2{
+    color: var(--default);
+    font-variant: small-caps;
+    margin: .3em auto;
+}
+.textbox {
+    margin: 0.7em 4.5em;
+    border-bottom: 2px solid var(--blackie);
+    width: 25em;
+
+}
+.textbox:first-of-type{
+    margin-top: 2em;
+}
+.textbox input {
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--default);
+    font-size: 1em;
+}
+
+.button{
+    margin: 2em auto;
+    width: 10em;
+    height: 3em;
+    background: none;
+    outline: none;
+    border: 1px solid var(--default);
+    cursor: pointer;
+    color: var(--default);
+    border-radius: 5%;
+}

@@ -235,6 +235,11 @@ height: 50em;
     color: var(--default);
     border-radius: 5%;
 }
+.prefooter button a{
+    text-decoration: none;
+    color: var(--default);
+    font-weight: 600;
+}
 
 .footer {
     width: 100%;

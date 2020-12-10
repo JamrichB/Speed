@@ -1,5 +1,5 @@
 <?php 
-include 'action_reservation.php';
+include 'action_main_reservation.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@ include 'action_reservation.php';
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/index_style.css">
+        <link rel="stylesheet" href="css/reservation_style.css">
     </head>
     <body>
         <header>
@@ -26,7 +26,7 @@ include 'action_reservation.php';
             </nav>
         </header>
 
-        <form action="action_reservation.php" method="POST" enctype="multipart/form-data">
+    <form action="action_reservation.php" method="POST" enctype="multipart/form-data">
      <input type="hidden" name="id" value="<?= $id; ?>">
       <div class="add-edit-reservation">
         <div class="components">
@@ -55,7 +55,7 @@ include 'action_reservation.php';
             <div class="textbox">
                 <input type="text" name="miestoOdovzdania" placeholder="Miesto odovzdania" required>
             </div> 
-               <input type="submit" class="button" name="add" value="Odoslať">
+               <input type="submit" class="button" name="add3" value="Odoslať">
         </div>
       </div> 
     </form>

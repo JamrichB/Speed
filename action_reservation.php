@@ -15,7 +15,7 @@
   
 
    //  ADD
-   if(isset($_POST['add'])){
+   if(isset($_POST['add2'])){
        $meno=$_POST['meno'];
        $priezvisko=$_POST['priezvisko'];
        $phone=$_POST['phone'];

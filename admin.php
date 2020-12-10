@@ -198,7 +198,7 @@ include 'action_reservation.php';
             <?php if($update2==true){ ?>
               <input type="submit" class="button" name="update2" value="Upraviť">
             <?php } else { ?>
-               <input type="submit" class="button" name="add" value="Odoslať">
+               <input type="submit" class="button" name="add2" value="Odoslať">
             <?php } ?>
         </div>
       </div> 

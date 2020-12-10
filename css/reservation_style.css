@@ -20,52 +20,41 @@ body {
     width: 100%;
     height: 4em;
     background: var(--blackie);
-    border-radius: 0%;
-    display: flex;
-    
 }
-.navbar p {
+
+.nav_components {
+   display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+     color: var(--default);
+     font-weight: 400;
+}
+
+.nav_components li {
+    list-style-type: none;
+    margin-right: 4em;
+    padding-top: 1.5em;
+}
+
+.nav_components:first-child {
+    color: #bfbfbf;
+}
+
+.nav_components li a:hover {
+    color: #c8c8c8;
+}
+
+.nav_components a {
+    text-decoration: none;
     color: var(--default);
-    font-weight: 400;
-    padding: .9em ;
-    margin-left: 29em;
-    font-size: 1.3em;
-    width: 50em;
-    letter-spacing: .5em;
-    font-variant: small-caps;
-}
-
-.navbar a {
-text-decoration: none;
-color: var(--default);
-font-variant: small-caps;
-font-size: 1.2em;
-width: 10em;
-padding-top: 1em;
-}
-.container {
-    margin: 5em 0 0 5em;
-}
-
-.add-edit-cars {
+} 
+.add-edit-reservation{
     background-color: var(--burgundie);
     width: 50em;
     height: 35em;
     margin: 0 auto;
-    right: 3em;
-    top: 2em;
-    position: relative;
-    border-radius: 2%;
-    margin-bottom: 8em;
-    margin-top: 2em;
-}
-
-.add-edit-reservation{
-    background-color: var(--burgundie);
-    width: 50em;
-    height: 38em;
-    margin: 0 auto;
-    right: 3em;
+    right: .5em;
     top: 2em;
     position: relative;
     border-radius: 2%;
@@ -74,10 +63,13 @@ padding-top: 1em;
 }
 
 .components{
+    border-radius: 2%;
+    height: 35em;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    
+    box-shadow: 20px 20px 61px #b7b7b7,
+                -20px -20px 61px #F2F2F2;
 }
 .components h2{
     color: var(--default);
@@ -94,6 +86,7 @@ padding-top: 1em;
 .textbox:first-of-type{
     margin-top: 2em;
 }
+
 .textbox input {
     border: none;
     outline: none;
@@ -101,7 +94,6 @@ padding-top: 1em;
     color: var(--default);
     font-size: 1em;
 }
-
 .button{
     margin: 2em auto;
     width: 10em;

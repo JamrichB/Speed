@@ -1,5 +1,6 @@
 <?php 
 include 'action_models.php';
+include 'action_reservation.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -112,6 +113,12 @@ include 'action_models.php';
     </form>
 
       <div class="container">
+      <?php
+        $query="SELECT * FROM rezervacie";
+        $stmt=$conn->prepare($query);
+        $stmt->execute();
+        $result=$stmt->get_result();
+        ?>
         <h2>Rezervácie</h2>
         <p>Aktuálne rezervácie jednotlivých modelov áut:</p>            
         <table class="table table-condensed">
@@ -119,8 +126,8 @@ include 'action_models.php';
             <tr>
               <th>Meno</th>
               <th>Priezvisko</th>
-              <th>E-mail</th>
               <th>Telefónne číslo</th>
+              <th>Auto</th>
               <th>Od</th>
               <th>Do</th>
               <th>Miesto prevzatia</th>
@@ -129,84 +136,72 @@ include 'action_models.php';
             </tr>
           </thead>
           <tbody>
+          <?php while($row=$result->fetch_assoc()){ ?>
             <tr>
-              <td>John</td>
-              <td>Doe</td>
-              <td>john@example.com</td>
-              <td>995217</td>
-              <td>14.07</td>
-              <td>09.08</td>
-              <td>Bratislava</td>
-              <th>Košice</th>
+              <td><?= $row['meno']; ?></td>
+              <td><?= $row['priezvisko']; ?></td>
+              <td><?= $row['phone']; ?></td>
+              <td><?= $row['auto']; ?></td>
+              <td><?= $row['od']; ?></td>
+              <td><?= $row['do']; ?></td>
+              <td><?= $row['miestoPrevzatia']; ?></td>
+              <td><?= $row['miestoOdovzdania']; ?></td>
               <td>
-                <a href="#" class="badge badge-primary">Details</a> |
-                <a href="#" class="badge badge-success">Edit</a> |
-                <a href="#" class="badge badge-danger">Delete</a> 
+                  <a href="details_reservation.php?details=<?= $row['id']; ?>" class="badge badge-primary">Details</a> |
+                  <a href="admin.php?edit2=<?= $row['id']; ?>" class="badge badge-success">Edit</a> |
+                  <a href="action_reservation.php?delete=<?= $row['id']; ?>" class="badge badge-danger" onclick="return confirm('Chcete naozaj vymazať daný záznam?');">Delete</a> 
             </td>
             </tr>
-            <tr>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td>995217</td>
-              <td>14.07</td>
-              <td>09.08</td>
-              <td>Bratislava</td>
-              <th>Košice</th>
-              <td>
-                <a href="#" class="badge badge-primary">Details</a> |
-                <a href="#" class="badge badge-success">Edit</a> |
-                <a href="#" class="badge badge-danger">Delete</a> 
-            </td>
-            </tr>
-            <tr>
-              <td>July</td>
-              <td>Dooley</td>
-              <td>july@example.com</td>
-              <td>995217</td>
-              <td>14.07</td>
-              <td>09.08</td>
-              <td>Bratislava</td>
-              <th>Košice</th>
-              <td>
-                <a href="#" class="badge badge-primary">Details</a> |
-                <a href="#" class="badge badge-success">Edit</a> |
-                <a href="#" class="badge badge-danger">Delete</a> 
-            </td>
-            </tr>
+            <?php } ?>
           </tbody>
         </table>
       </div>
 
+      <?php if (isset($_SESSION['response'])){ ?>
+        <div class="alert alert-<?= $_SESSION['res_type']; ?> alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;
+      </button> 
+      <?=$_SESSION['response']; ?>
+      </div>
+      <?php } unset($_SESSION['response']); ?>
+
+
+    <form action="action_reservation.php" method="POST" enctype="multipart/form-data">
+     <input type="hidden" name="id" value="<?= $id; ?>">
       <div class="add-edit-reservation">
         <div class="components">
             <h2>pridať novú rezerváciu</h2>
             <div class="textbox">
-                <input type="text" name="meno" placeholder="Meno" required>
+                <input type="text" name="meno" value="<?= $meno; ?>" placeholder="Meno" required>
             </div>
             <div class="textbox">
-                <input type="text" name="priezvisko" placeholder="Priezvisko" required>
+                <input type="text" name="priezvisko" value="<?= $priezvisko; ?>" placeholder="Priezvisko" required>
             </div> 
             <div class="textbox">
-                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="text" name="phone" value="<?= $phone; ?>" placeholder="Telefónne číslo" required>
             </div> 
             <div class="textbox">
-                <input type="text" name="phone" placeholder="Telefónne číslo" required>
+            <input type="text" name="auto" value="<?= $auto; ?>" placeholder="Auto" required>
             </div> 
             <div class="textbox">
-                <input type="date" name="od" placeholder="Od" required>
+                <input type="date" name="od" value="<?= $od; ?>" placeholder="Od" required>
             </div> 
             <div class="textbox">
-                <input type="date" name="do" placeholder="Do" required>
+                <input type="date" name="do" value="<?= $do; ?>" placeholder="Do" required>
             </div> 
             <div class="textbox">
-                <input type="text" name="miestoPr" placeholder="Miesto prevzatia" required>
+                <input type="text" name="miestoPrevzatia" value="<?= $miestoP; ?>" placeholder="Miesto prevzatia" required>
             </div> 
             <div class="textbox">
-                <input type="text" name="miestoOd" placeholder="Miesto odovzdania" required>
+                <input type="text" name="miestoOdovzdania" value="<?= $miestoO; ?>" placeholder="Miesto odovzdania" required>
             </div> 
-            <input type="submit" class="button" name="add" value="Odoslať">
+            <?php if($update2==true){ ?>
+              <input type="submit" class="button" name="update2" value="Upraviť">
+            <?php } else { ?>
+               <input type="submit" class="button" name="add" value="Odoslať">
+            <?php } ?>
         </div>
-      </div>
-    </body>
+      </div> 
+    </form>
+    </body>     
 </html>

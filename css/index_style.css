@@ -104,7 +104,8 @@ body {
     position: relative;
     top: 5em;
     left: -15em;
-    box-shadow: 12px 12px 24px #b7b7b7;
+    box-shadow: 20px 20px 61px #b7b7b7,
+                -20px -20px 61px #F2F2F2;
     float: left;
 }
 
@@ -156,7 +157,8 @@ height: 50em;
     color: var(--default);
     margin: 3em 0 0 3em;
     overflow: hidden;
-    box-shadow: 12px 12px 24px #b7b7b7;
+    box-shadow: 20px 20px 61px #b7b7b7,
+                -20px -20px 61px #F2F2F2;
 }
 
 .reason h3 {

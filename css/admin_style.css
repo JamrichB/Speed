@@ -28,7 +28,7 @@ body {
     color: var(--default);
     font-weight: 400;
     padding: .9em ;
-    margin-left: 40em;
+    margin-left: 29em;
     font-size: 1.3em;
     width: 50em;
     letter-spacing: .5em;
@@ -58,6 +58,7 @@ padding: .7em;
     margin-bottom: 8em;
     margin-top: 2em;
 }
+
 .add-edit-reservation{
     background-color: var(--burgundie);
     width: 50em;
@@ -70,10 +71,13 @@ padding: .7em;
     margin-bottom: 8em;
     margin-top: 2em;
 }
+
 .components{
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    box-shadow: 20px 20px 61px #b7b7b7,
+                -20px -20px 61px #F2F2F2;
 }
 .components h2{
     color: var(--default);
@@ -84,6 +88,7 @@ padding: .7em;
     margin: 0.7em 4.5em;
     border-bottom: 2px solid var(--blackie);
     width: 25em;
+    background: none;
 
 }
 .textbox:first-of-type{

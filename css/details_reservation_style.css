@@ -46,24 +46,31 @@ padding: .7em;
 
 .container {
     width: 60em;
-    height: max-content;
+    height: 39em;
     background: #732b24;
     border-radius: 4%;
     margin-top: 5em;
-}
-.container img{
-    margin-top: 4em;
-    margin-bottom: 5em;
-    float: left;
+    box-shadow: 20px 20px 61px #b7b7b7,
+                -20px -20px 61px #F2F2F2;
 }
 .container p{
     font-size: 1.2em;
     margin-left: 3em;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
 }
 
 .text {
-    float: right;
     position: relative;
-    right: 17em;
-    top: 7em;
+    left: 5em;
+    top: 2em;
+}
+
+.container h3{
+    font-variant: small-caps;
+    font-size: 1.4em;
+    margin: 0;
+}
+.container h2{
+    text-align: center;
 }

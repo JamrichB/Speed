@@ -21,13 +21,11 @@ include 'action_main_reservation.php';
                     <li><a href="index.html">O nás</li>
                     <li><a href="models.php">Modely</a></li>
                     <li>Rezervácia</li>
-                    <li><a href="contact.html">Kontakt</a></li>
                 </ul>
             </nav>
         </header>
 
-    <form action="action_reservation.php" method="POST" enctype="multipart/form-data">
-     <input type="hidden" name="id" value="<?= $id; ?>">
+    <form action="action_main_reservation.php" method="POST" enctype="multipart/form-data">
       <div class="add-edit-reservation">
         <div class="components">
             <h2>pridať novú rezerváciu</h2>

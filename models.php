@@ -18,10 +18,9 @@ include 'config.php';
         <header>
             <nav class="navbar">
                 <ul class="nav_components">
-                    <li><a href="index.html">O nás</li>
+                    <li><a href="index.html">O nás</a></li>
                     <li>Modely</li>
                     <li><a href="reservation.php">Rezervácia</a></li>
-                    <li><a href="contact.html">Kontakt</a></li>
                 </ul>
             </nav>
         </header>
